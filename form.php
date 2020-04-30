@@ -5,7 +5,7 @@
     $_SESSION['hobbies'] = array();
   }
   $_SESSION['hobbies'] = array_values( $_SESSION['hobbies'] );
-  $message = 'Welcome to the Login Page, Please Sign In Now.';
+  $message = 'To-do-list-php.';
   if ( isset( $_POST ) && !empty( $_POST ) ) // Making sure SOMETHING was submitted.
   {
     $submittedUsername = $_POST['username'];
@@ -30,29 +30,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHP Form Handling</title>
+  <title>PHP To-Do</title>
 </head>
 <body>
-  <h1>PHP Form Handling</h1>
+  <h1>PHP To-Do</h1>
   <?php include './includes/navigation.php'; ?>
-  <h2>Sign In Form</h2>
+  <h2>Add a To-Do</h2>
   <p>
     <?php echo $message; // Output our "sign-in" related message. ?>
   </p>
   <form action="./form.php" method="POST"><?php ?>
     <label for="username">
-      Username:
+      Enter a new Task:
       <input type="text" name="username" id="username">
-    </label>
-    <label for="password">
-      Password:
-      <input type="password" name="password" id="password">
     </label>
     <label for="hobbies">
       Add an hobby:
       <input type="text" name="hobbies" id="hobbies">
     </label>
-    <input type="submit" value="Sign In">
+    
+    <input type="submit" value="Add To List">
+    <input type="reset" value="Reset">
   </form>
   <?php if ( !empty( $_SESSION['hobbies'] ) ) : ?>
     <h2>My hobbies:</h2>
